@@ -1,10 +1,10 @@
-ADDI $a0 $0 7
+ADDI $a0 $0 5
 PRINT $a0
-JAL FIB
+JAL FACT
 PRINT $v0
 J FINISH
 
-FIB: PRINT $a0
+FACT: PRINT $a0
 ADDI $sp $sp -12
 SW $ra 8($sp)
 SW $s0 4($sp)
@@ -20,12 +20,11 @@ LW $ra 8($sp)
 ADDI $sp $sp 12
 JR $ra
 
-LOOP: SUBI $a0 $a0 1
-JAL FIB
-ADD $s0 $v0 $0
+LOOP: ADD $s0 $a0 $0
 SUBI $a0 $a0 1
-JAL FIB
-ADD $v0 $v0 $s0
+JAL FACT
+MULT $s0 $v0
+MFLO $v0
 J RTN
 
 FINISH: END
