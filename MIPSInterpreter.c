@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// testing a commit
 //define an instruction structure:
 typedef struct instructions {
 	char* operation;
